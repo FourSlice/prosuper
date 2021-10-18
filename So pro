@@ -1,3 +1,8 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local NewGui = Instance.new("ScreenGui")
 local maingui = Instance.new("Frame")
 local Minimize = Instance.new("ImageLabel")
@@ -25,43 +30,6 @@ local teleports = Instance.new("TextButton")
 
 NewGui.Name = "NewGui"
 NewGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-local UserInputService = game:GetService("UserInputService")
-
-local dragging
-local dragInput
-local dragStart
-local startPos
-
-local function update(input)
-	local delta = input.Position - dragStart
-	maingui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-end
-
-maingui.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = true
-		dragStart = input.Position
-		startPos = maingui.Position
-
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-end)
-maingui.InputChanged:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseMovement then
-		dragInput = input
-	end
-end)
-
-UserInputService.InputChanged:Connect(function(input)
-	if input == dragInput and dragging then
-		update(input)
-	end
-end)
 
 maingui.Name = "maingui"
 maingui.Parent = NewGui
@@ -215,14 +183,14 @@ sunkencrystal.Text = "crystal"
 sunkencrystal.TextColor3 = Color3.fromRGB(186, 186, 186)
 sunkencrystal.TextSize = 14.000
 
-magehideout.Name = "magehideout"
+magehideout.Name = "autofarm"
 magehideout.Parent = Frame_2
 magehideout.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
 magehideout.BorderSizePixel = 0
 magehideout.Position = UDim2.new(0, 12, 0, 82)
 magehideout.Size = UDim2.new(0, 68, 0, 25)
 magehideout.Font = Enum.Font.Ubuntu
-magehideout.Text = "mage"
+magehideout.Text = "autofarm"
 magehideout.TextColor3 = Color3.fromRGB(186, 186, 186)
 magehideout.TextSize = 14.000
 
@@ -294,7 +262,7 @@ local function IYWGLK_fake_script() -- desert4.LocalScript
 	desert4.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-478.94195556641, 272.09365844727, 57.083358764648)
 	end)
-
+	
 end
 coroutine.wrap(IYWGLK_fake_script)()
 local function CAGSH_fake_script() -- spytower.LocalScript 
@@ -311,7 +279,7 @@ local function WIVNFW_fake_script() -- tundra5.LocalScript
 	tundra5.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6179.3334960938, 1344.2939453125, 172.17364501953)
 	end)
-
+	
 end
 coroutine.wrap(WIVNFW_fake_script)()
 local function AIIT_fake_script() -- sigil.LocalScript 
@@ -358,7 +326,7 @@ local function LESO_fake_script() -- magehideout.LocalScript
 	local script = Instance.new('LocalScript', magehideout)
 
 	print("Hello world!")
-
+	
 end
 coroutine.wrap(LESO_fake_script)()
 local function MWJRPWO_fake_script() -- skycastle.LocalScript 
@@ -367,7 +335,7 @@ local function MWJRPWO_fake_script() -- skycastle.LocalScript
 	skycastle.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1007.7816162109, 3783.1398925781, 200.13186645508)
 	end)
-
+	
 end
 coroutine.wrap(MWJRPWO_fake_script)()
 local function BRCWOB_fake_script() -- lavasnake.LocalScript 
