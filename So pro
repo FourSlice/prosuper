@@ -1,7 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
 
 local NewGui = Instance.new("ScreenGui")
 local maingui = Instance.new("Frame")
@@ -27,16 +23,52 @@ local autopickup = Instance.new("TextButton")
 local teleports = Instance.new("TextButton")
 
 --Properties:
-
 NewGui.Name = "NewGui"
 NewGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local UserInputService = game:GetService("UserInputService")
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	maingui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+maingui.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = maingui.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+maingui.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement then
+		dragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
 
 maingui.Name = "maingui"
 maingui.Parent = NewGui
 maingui.Active = true
 maingui.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
 maingui.BorderSizePixel = 0
-maingui.Position = UDim2.new(0.111985788, 0, 0.114623249, 0)
+maingui.Position = UDim2.new(0.0887617469, 0, 0.142465472, 0)
 maingui.Size = UDim2.new(0, 384, 0, 28)
 
 Minimize.Name = "Minimize"
@@ -183,7 +215,7 @@ sunkencrystal.Text = "crystal"
 sunkencrystal.TextColor3 = Color3.fromRGB(186, 186, 186)
 sunkencrystal.TextSize = 14.000
 
-magehideout.Name = "autofarm"
+magehideout.Name = "magehideout"
 magehideout.Parent = Frame_2
 magehideout.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
 magehideout.BorderSizePixel = 0
@@ -248,15 +280,15 @@ teleports.TextSize = 14.000
 
 -- Scripts:
 
-local function CZVUU_fake_script() -- crypt.LocalScript 
+local function GXUVTJS_fake_script() -- crypt.LocalScript 
 	local script = Instance.new('LocalScript', crypt)
 
 	crypt.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(555.77728271484, 178.59997558594, -1181.0296630859)
 	end)
 end
-coroutine.wrap(CZVUU_fake_script)()
-local function IYWGLK_fake_script() -- desert4.LocalScript 
+coroutine.wrap(GXUVTJS_fake_script)()
+local function BPEWV_fake_script() -- desert4.LocalScript 
 	local script = Instance.new('LocalScript', desert4)
 
 	desert4.MouseButton1Down:connect(function()
@@ -264,16 +296,16 @@ local function IYWGLK_fake_script() -- desert4.LocalScript
 	end)
 	
 end
-coroutine.wrap(IYWGLK_fake_script)()
-local function CAGSH_fake_script() -- spytower.LocalScript 
+coroutine.wrap(BPEWV_fake_script)()
+local function VLHDXS_fake_script() -- spytower.LocalScript 
 	local script = Instance.new('LocalScript', spytower)
 
 	spytower.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1180.4927978516, 857.44232177734, 2640.2858886719)
 	end)
 end
-coroutine.wrap(CAGSH_fake_script)()
-local function WIVNFW_fake_script() -- tundra5.LocalScript 
+coroutine.wrap(VLHDXS_fake_script)()
+local function TMDB_fake_script() -- tundra5.LocalScript 
 	local script = Instance.new('LocalScript', tundra5)
 
 	tundra5.MouseButton1Down:connect(function()
@@ -281,55 +313,63 @@ local function WIVNFW_fake_script() -- tundra5.LocalScript
 	end)
 	
 end
-coroutine.wrap(WIVNFW_fake_script)()
-local function AIIT_fake_script() -- sigil.LocalScript 
+coroutine.wrap(TMDB_fake_script)()
+local function JIPYUU_fake_script() -- sigil.LocalScript 
 	local script = Instance.new('LocalScript', sigil)
 
 	sigil.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6568.4311523438, 1385.4940185547, 485.12020874023)
 	end)
 end
-coroutine.wrap(AIIT_fake_script)()
-local function PEPIGDK_fake_script() -- eagle.LocalScript 
+coroutine.wrap(JIPYUU_fake_script)()
+local function DGZZQQA_fake_script() -- eagle.LocalScript 
 	local script = Instance.new('LocalScript', eagle)
 
 	eagle.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4538.171875, 839.29376220703, 471.69375610352)
 	end)
 end
-coroutine.wrap(PEPIGDK_fake_script)()
-local function QVOHF_fake_script() -- tundra7.LocalScript 
+coroutine.wrap(DGZZQQA_fake_script)()
+local function ONSHX_fake_script() -- tundra7.LocalScript 
 	local script = Instance.new('LocalScript', tundra7)
 
 	tundra7.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5055.1953125, 689.29388427734, 1478.2529296875)
 	end)
 end
-coroutine.wrap(QVOHF_fake_script)()
-local function LFVKLAN_fake_script() -- CROCKTABLE.LocalScript 
+coroutine.wrap(ONSHX_fake_script)()
+local function EBPKDDU_fake_script() -- CROCKTABLE.LocalScript 
 	local script = Instance.new('LocalScript', CROCKTABLE)
 
 	CROCKTABLE.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4885.9931640625, 548.95037841797, 781.82757568359)
 	end)
 end
-coroutine.wrap(LFVKLAN_fake_script)()
-local function RJCQJ_fake_script() -- sunkencrystal.LocalScript 
+coroutine.wrap(EBPKDDU_fake_script)()
+local function PVZGV_fake_script() -- sunkencrystal.LocalScript 
 	local script = Instance.new('LocalScript', sunkencrystal)
 
 	sunkencrystal.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1005.7575683594, -455.78994750977, -4325.314453125)
 	end)
 end
-coroutine.wrap(RJCQJ_fake_script)()
-local function LESO_fake_script() -- magehideout.LocalScript 
+coroutine.wrap(PVZGV_fake_script)()
+local function LHSL_fake_script() -- magehideout.LocalScript 
 	local script = Instance.new('LocalScript', magehideout)
 
-	print("Hello world!")
-	
+	magehideout.MouseButton1Down:connect(function()
+		while wait() do
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4023.06640625, 439.2939453125, -996.04638671875)
+			wait(3)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3984.8244628906, 439.2939453125, -996.28460693359)
+			wait(3)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1005.7575683594, -455.78994750977, -4325.314453125)
+			wait(8)
+		end
+		end)
 end
-coroutine.wrap(LESO_fake_script)()
-local function MWJRPWO_fake_script() -- skycastle.LocalScript 
+coroutine.wrap(LHSL_fake_script)()
+local function UNMKWZS_fake_script() -- skycastle.LocalScript 
 	local script = Instance.new('LocalScript', skycastle)
 
 	skycastle.MouseButton1Down:connect(function()
@@ -337,24 +377,31 @@ local function MWJRPWO_fake_script() -- skycastle.LocalScript
 	end)
 	
 end
-coroutine.wrap(MWJRPWO_fake_script)()
-local function BRCWOB_fake_script() -- lavasnake.LocalScript 
+coroutine.wrap(UNMKWZS_fake_script)()
+local function HEPXJLC_fake_script() -- lavasnake.LocalScript 
 	local script = Instance.new('LocalScript', lavasnake)
 
 	lavasnake.MouseButton1Down:connect(function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3995.9052734375, 439.2939453125, -998.21673583984)
 	end)
 end
-coroutine.wrap(BRCWOB_fake_script)()
-local function EORN_fake_script() -- autopickup.LocalScript 
+coroutine.wrap(HEPXJLC_fake_script)()
+local function SPPII_fake_script() -- autopickup.LocalScript 
 	local script = Instance.new('LocalScript', autopickup)
 
 	while wait(0.1) do  for i,v in pairs(workspace.MouseIgnore:GetDescendants()) do if v:IsA("ClickDetector") then fireclickdetector(v) end end end
 end
-coroutine.wrap(EORN_fake_script)()
-local function UZELJL_fake_script() -- NewGui.LocalScript 
+coroutine.wrap(SPPII_fake_script)()
+local function ZIUSW_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	print("Hello world!")
+	
+end
+coroutine.wrap(ZIUSW_fake_script)()
+local function UQHXDET_fake_script() -- NewGui.LocalScript 
 	local script = Instance.new('LocalScript', NewGui)
 
 	IsDraggable = true
 end
-coroutine.wrap(UZELJL_fake_script)()
+coroutine.wrap(UQHXDET_fake_script)()
