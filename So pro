@@ -1,0 +1,392 @@
+local NewGui = Instance.new("ScreenGui")
+local maingui = Instance.new("Frame")
+local Minimize = Instance.new("ImageLabel")
+local title = Instance.new("TextLabel")
+local Close = Instance.new("ImageButton")
+local Frame = Instance.new("Frame")
+local Frame_2 = Instance.new("Frame")
+local crypt = Instance.new("TextButton")
+local desert4 = Instance.new("TextButton")
+local spytower = Instance.new("TextButton")
+local tundra5 = Instance.new("TextButton")
+local sigil = Instance.new("TextButton")
+local eagle = Instance.new("TextButton")
+local tundra7 = Instance.new("TextButton")
+local CROCKTABLE = Instance.new("TextButton")
+local sunkencrystal = Instance.new("TextButton")
+local magehideout = Instance.new("TextButton")
+local skycastle = Instance.new("TextButton")
+local lavasnake = Instance.new("TextButton")
+local Frame_3 = Instance.new("Frame")
+local autopickup = Instance.new("TextButton")
+local teleports = Instance.new("TextButton")
+
+--Properties:
+
+NewGui.Name = "NewGui"
+NewGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local UserInputService = game:GetService("UserInputService")
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	maingui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+maingui.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = maingui.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+maingui.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement then
+		dragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
+
+maingui.Name = "maingui"
+maingui.Parent = NewGui
+maingui.Active = true
+maingui.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+maingui.BorderSizePixel = 0
+maingui.Position = UDim2.new(0.111985788, 0, 0.114623249, 0)
+maingui.Size = UDim2.new(0, 384, 0, 28)
+
+Minimize.Name = "Minimize"
+Minimize.Parent = maingui
+Minimize.Active = true
+Minimize.BackgroundTransparency = 1.000
+Minimize.Position = UDim2.new(-5.96046448e-08, 0, 0, 0)
+Minimize.Size = UDim2.new(0, 26, 0, 27)
+Minimize.Image = "rbxassetid://4370337241"
+Minimize.ImageColor3 = Color3.fromRGB(186, 186, 186)
+Minimize.ScaleType = Enum.ScaleType.Fit
+
+title.Name = "title"
+title.Parent = maingui
+title.Active = true
+title.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+title.BorderSizePixel = 0
+title.Position = UDim2.new(0.330729187, 0, 0, 0)
+title.Size = UDim2.new(0, 130, 0, 27)
+title.Font = Enum.Font.Ubuntu
+title.Text = "pro super"
+title.TextColor3 = Color3.fromRGB(185, 185, 185)
+title.TextSize = 20.000
+
+Close.Name = "Close"
+Close.Parent = maingui
+Close.BackgroundTransparency = 1.000
+Close.Position = UDim2.new(0.92968744, 0, 0, 0)
+Close.Size = UDim2.new(0, 28, 0, 28)
+Close.Image = "rbxassetid://3944676352"
+Close.ImageColor3 = Color3.fromRGB(186, 186, 186)
+Close.ScaleType = Enum.ScaleType.Fit
+
+Frame.Parent = maingui
+Frame.Active = true
+Frame.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 0.992788315, 0)
+Frame.Size = UDim2.new(0, 384, 0, 175)
+
+Frame_2.Parent = Frame
+Frame_2.Active = true
+Frame_2.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0.309895754, 0, 0.0571428575, 0)
+Frame_2.Size = UDim2.new(0, 255, 0, 155)
+
+crypt.Name = "crypt"
+crypt.Parent = Frame_2
+crypt.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+crypt.BorderSizePixel = 0
+crypt.Position = UDim2.new(0, 174, 0, 12)
+crypt.Size = UDim2.new(0, 68, 0, 25)
+crypt.Font = Enum.Font.Ubuntu
+crypt.Text = "crypt "
+crypt.TextColor3 = Color3.fromRGB(186, 186, 186)
+crypt.TextSize = 14.000
+
+desert4.Name = "desert4"
+desert4.Parent = Frame_2
+desert4.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+desert4.BorderSizePixel = 0
+desert4.Position = UDim2.new(0, 174, 0, 47)
+desert4.Size = UDim2.new(0, 68, 0, 25)
+desert4.Font = Enum.Font.Ubuntu
+desert4.Text = " desert 4"
+desert4.TextColor3 = Color3.fromRGB(186, 186, 186)
+desert4.TextSize = 14.000
+
+spytower.Name = "spytower"
+spytower.Parent = Frame_2
+spytower.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+spytower.BorderSizePixel = 0
+spytower.Position = UDim2.new(0, 174, 0, 82)
+spytower.Size = UDim2.new(0, 68, 0, 25)
+spytower.Font = Enum.Font.Ubuntu
+spytower.Text = "spy"
+spytower.TextColor3 = Color3.fromRGB(186, 186, 186)
+spytower.TextSize = 14.000
+
+tundra5.Name = "tundra5"
+tundra5.Parent = Frame_2
+tundra5.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+tundra5.BorderSizePixel = 0
+tundra5.Position = UDim2.new(0, 174, 0, 117)
+tundra5.Size = UDim2.new(0, 68, 0, 25)
+tundra5.Font = Enum.Font.Ubuntu
+tundra5.Text = "helmet"
+tundra5.TextColor3 = Color3.fromRGB(186, 186, 186)
+tundra5.TextSize = 14.000
+
+sigil.Name = "sigil"
+sigil.Parent = Frame_2
+sigil.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+sigil.BorderSizePixel = 0
+sigil.Position = UDim2.new(0, 93, 0, 12)
+sigil.Size = UDim2.new(0, 68, 0, 25)
+sigil.Font = Enum.Font.Ubuntu
+sigil.Text = "sigil"
+sigil.TextColor3 = Color3.fromRGB(186, 186, 186)
+sigil.TextSize = 14.000
+
+eagle.Name = "eagle"
+eagle.Parent = Frame_2
+eagle.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+eagle.BorderSizePixel = 0
+eagle.Position = UDim2.new(0, 93, 0, 117)
+eagle.Size = UDim2.new(0, 68, 0, 25)
+eagle.Font = Enum.Font.Ubuntu
+eagle.Text = "eagle"
+eagle.TextColor3 = Color3.fromRGB(186, 186, 186)
+eagle.TextSize = 14.000
+
+tundra7.Name = "tundra7"
+tundra7.Parent = Frame_2
+tundra7.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+tundra7.BorderSizePixel = 0
+tundra7.Position = UDim2.new(0, 93, 0, 82)
+tundra7.Size = UDim2.new(0, 68, 0, 25)
+tundra7.Font = Enum.Font.Ubuntu
+tundra7.Text = "dpit"
+tundra7.TextColor3 = Color3.fromRGB(186, 186, 186)
+tundra7.TextSize = 14.000
+
+CROCKTABLE.Name = "CROCKTABLE"
+CROCKTABLE.Parent = Frame_2
+CROCKTABLE.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+CROCKTABLE.BorderSizePixel = 0
+CROCKTABLE.Position = UDim2.new(0, 93, 0, 47)
+CROCKTABLE.Size = UDim2.new(0, 68, 0, 25)
+CROCKTABLE.Font = Enum.Font.Ubuntu
+CROCKTABLE.Text = "cr table"
+CROCKTABLE.TextColor3 = Color3.fromRGB(186, 186, 186)
+CROCKTABLE.TextSize = 14.000
+
+sunkencrystal.Name = "sunkencrystal"
+sunkencrystal.Parent = Frame_2
+sunkencrystal.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+sunkencrystal.BorderSizePixel = 0
+sunkencrystal.Position = UDim2.new(0, 12, 0, 117)
+sunkencrystal.Size = UDim2.new(0, 68, 0, 25)
+sunkencrystal.Font = Enum.Font.Ubuntu
+sunkencrystal.Text = "crystal"
+sunkencrystal.TextColor3 = Color3.fromRGB(186, 186, 186)
+sunkencrystal.TextSize = 14.000
+
+magehideout.Name = "magehideout"
+magehideout.Parent = Frame_2
+magehideout.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+magehideout.BorderSizePixel = 0
+magehideout.Position = UDim2.new(0, 12, 0, 82)
+magehideout.Size = UDim2.new(0, 68, 0, 25)
+magehideout.Font = Enum.Font.Ubuntu
+magehideout.Text = "mage"
+magehideout.TextColor3 = Color3.fromRGB(186, 186, 186)
+magehideout.TextSize = 14.000
+
+skycastle.Name = "skycastle"
+skycastle.Parent = Frame_2
+skycastle.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+skycastle.BorderSizePixel = 0
+skycastle.Position = UDim2.new(0, 12, 0, 47)
+skycastle.Size = UDim2.new(0, 68, 0, 25)
+skycastle.Font = Enum.Font.Ubuntu
+skycastle.Text = "skycastle"
+skycastle.TextColor3 = Color3.fromRGB(186, 186, 186)
+skycastle.TextSize = 14.000
+
+lavasnake.Name = "lavasnake"
+lavasnake.Parent = Frame_2
+lavasnake.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+lavasnake.BorderSizePixel = 0
+lavasnake.Position = UDim2.new(0, 12, 0, 12)
+lavasnake.Size = UDim2.new(0, 68, 0, 25)
+lavasnake.Font = Enum.Font.Ubuntu
+lavasnake.Text = "snake pit"
+lavasnake.TextColor3 = Color3.fromRGB(186, 186, 186)
+lavasnake.TextSize = 14.000
+
+Frame_3.Parent = Frame
+Frame_3.Active = true
+Frame_3.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0.026041666, 0, 0.0571428575, 0)
+Frame_3.Size = UDim2.new(0, 98, 0, 155)
+
+autopickup.Name = "auto pickup"
+autopickup.Parent = Frame_3
+autopickup.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+autopickup.BorderSizePixel = 0
+autopickup.Position = UDim2.new(0, 0, 0.174193546, 0)
+autopickup.Size = UDim2.new(0, 98, 0, 25)
+autopickup.AutoButtonColor = false
+autopickup.Font = Enum.Font.Ubuntu
+autopickup.Text = "auto pick up"
+autopickup.TextColor3 = Color3.fromRGB(186, 186, 186)
+autopickup.TextSize = 14.000
+
+teleports.Name = "teleports"
+teleports.Parent = Frame_3
+teleports.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+teleports.BorderSizePixel = 0
+teleports.Position = UDim2.new(0, 0, 0.0129032256, 0)
+teleports.Size = UDim2.new(0, 98, 0, 25)
+teleports.Font = Enum.Font.Ubuntu
+teleports.Text = "teleports"
+teleports.TextColor3 = Color3.fromRGB(186, 186, 186)
+teleports.TextSize = 14.000
+
+-- Scripts:
+
+local function CZVUU_fake_script() -- crypt.LocalScript 
+	local script = Instance.new('LocalScript', crypt)
+
+	crypt.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(555.77728271484, 178.59997558594, -1181.0296630859)
+	end)
+end
+coroutine.wrap(CZVUU_fake_script)()
+local function IYWGLK_fake_script() -- desert4.LocalScript 
+	local script = Instance.new('LocalScript', desert4)
+
+	desert4.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-478.94195556641, 272.09365844727, 57.083358764648)
+	end)
+
+end
+coroutine.wrap(IYWGLK_fake_script)()
+local function CAGSH_fake_script() -- spytower.LocalScript 
+	local script = Instance.new('LocalScript', spytower)
+
+	spytower.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1180.4927978516, 857.44232177734, 2640.2858886719)
+	end)
+end
+coroutine.wrap(CAGSH_fake_script)()
+local function WIVNFW_fake_script() -- tundra5.LocalScript 
+	local script = Instance.new('LocalScript', tundra5)
+
+	tundra5.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6179.3334960938, 1344.2939453125, 172.17364501953)
+	end)
+
+end
+coroutine.wrap(WIVNFW_fake_script)()
+local function AIIT_fake_script() -- sigil.LocalScript 
+	local script = Instance.new('LocalScript', sigil)
+
+	sigil.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6568.4311523438, 1385.4940185547, 485.12020874023)
+	end)
+end
+coroutine.wrap(AIIT_fake_script)()
+local function PEPIGDK_fake_script() -- eagle.LocalScript 
+	local script = Instance.new('LocalScript', eagle)
+
+	eagle.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4538.171875, 839.29376220703, 471.69375610352)
+	end)
+end
+coroutine.wrap(PEPIGDK_fake_script)()
+local function QVOHF_fake_script() -- tundra7.LocalScript 
+	local script = Instance.new('LocalScript', tundra7)
+
+	tundra7.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5055.1953125, 689.29388427734, 1478.2529296875)
+	end)
+end
+coroutine.wrap(QVOHF_fake_script)()
+local function LFVKLAN_fake_script() -- CROCKTABLE.LocalScript 
+	local script = Instance.new('LocalScript', CROCKTABLE)
+
+	CROCKTABLE.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4885.9931640625, 548.95037841797, 781.82757568359)
+	end)
+end
+coroutine.wrap(LFVKLAN_fake_script)()
+local function RJCQJ_fake_script() -- sunkencrystal.LocalScript 
+	local script = Instance.new('LocalScript', sunkencrystal)
+
+	sunkencrystal.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1005.7575683594, -455.78994750977, -4325.314453125)
+	end)
+end
+coroutine.wrap(RJCQJ_fake_script)()
+local function LESO_fake_script() -- magehideout.LocalScript 
+	local script = Instance.new('LocalScript', magehideout)
+
+	print("Hello world!")
+
+end
+coroutine.wrap(LESO_fake_script)()
+local function MWJRPWO_fake_script() -- skycastle.LocalScript 
+	local script = Instance.new('LocalScript', skycastle)
+
+	skycastle.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1007.7816162109, 3783.1398925781, 200.13186645508)
+	end)
+
+end
+coroutine.wrap(MWJRPWO_fake_script)()
+local function BRCWOB_fake_script() -- lavasnake.LocalScript 
+	local script = Instance.new('LocalScript', lavasnake)
+
+	lavasnake.MouseButton1Down:connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3995.9052734375, 439.2939453125, -998.21673583984)
+	end)
+end
+coroutine.wrap(BRCWOB_fake_script)()
+local function EORN_fake_script() -- autopickup.LocalScript 
+	local script = Instance.new('LocalScript', autopickup)
+
+	while wait(0.1) do  for i,v in pairs(workspace.MouseIgnore:GetDescendants()) do if v:IsA("ClickDetector") then fireclickdetector(v) end end end
+end
+coroutine.wrap(EORN_fake_script)()
+local function UZELJL_fake_script() -- NewGui.LocalScript 
+	local script = Instance.new('LocalScript', NewGui)
+
+	IsDraggable = true
+end
+coroutine.wrap(UZELJL_fake_script)()
