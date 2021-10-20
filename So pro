@@ -207,3 +207,27 @@ end)
 w:Toggle("AutoPickup (toggle doesn't work 4 now)", function(v)
    	while wait(0.1) do  for i,v in pairs(workspace.MouseIgnore:GetDescendants()) do if v:IsA("ClickDetector") then fireclickdetector(v) end end end
 end)
+
+w:Toggle("Player Check", function(v)
+   function CheckPlayer(Player)
+    if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
+        if (Player.Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 then
+            game:Shutdown()
+        end
+    end
+end
+local VirtualUser=game:GetService'VirtualUser'
+local Players=game:GetService'Players'
+local LocalPlayer=Players.LocalPlayer
+LocalPlayer.Idled:Connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
+while wait() do
+    for i,v in pairs(game.Players:GetPlayers()) do
+        if v ~= game.Players.LocalPlayer then
+            CheckPlayer(v)
+        end
+    end
+end
+end)
