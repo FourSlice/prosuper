@@ -38,6 +38,7 @@ local function newSound()
     end)
 end
 
+
 for k,v in pairs(game.Players:GetChildren()) do
     if Mods[v.Name] then
         newSound()
@@ -70,8 +71,57 @@ game.Players.PlayerRemoving:connect(function(Player)
 end)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/lime"))()
+local w = Library:Window("stuff")
+w:Button("sell", function()
+    		game:GetService("ReplicatedStorage").BulkSell:FireServer()
+end)
+w:Toggle("AutoPickup (toggle doesn't work 4 now)", function(v)
+   	while wait(0.1) do  for i,v in pairs(workspace.MouseIgnore:GetDescendants()) do if v:IsA("ClickDetector") then fireclickdetector(v) end end end
+end)
 
-local w = Library:Window("cumsucker4000")
+w:Toggle("Player Check", function(v)
+   function CheckPlayer(Player)
+    if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
+        if (Player.Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 then
+            game:Shutdown()
+        end
+    end
+end
+local VirtualUser=game:GetService'VirtualUser'
+local Players=game:GetService'Players'
+local LocalPlayer=Players.LocalPlayer
+LocalPlayer.Idled:Connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
+while wait() do
+    for i,v in pairs(game.Players:GetPlayers()) do
+        if v ~= game.Players.LocalPlayer then
+            CheckPlayer(v)
+        end
+    end
+end
+end)
+
+local w = Library:Window("Crock")
+		
+w:Button("eagle",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4551.0805664063, 839.29370117188, 470.65466308594)
+end)
+
+w:Button("cr lab",function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5767.0620117188, 321.55383300781, 637.85296630859)
+end)
+
+w:Button("Castle Rock Table",function()
+    		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4885.9931640625, 548.95037841797, 781.82757568359)
+end)
+
+w:Button("crystal to tp out of cr",function()
+    		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1005.7575683594, -455.78994750977, -4325.314453125)
+end)
+
+local w = Library:Window("Teleports")
 
 w:Button("Crypt", function()
    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(555.77728271484, 178.59997558594, -1181.0296630859)
@@ -89,9 +139,6 @@ w:Button("Crystal",function()
     		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1005.7575683594, -455.78994750977, -4325.314453125)
 end)
 
-w:Button("Castle Rock Table",function()
-    		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4885.9931640625, 548.95037841797, 781.82757568359)
-end)
 
 w:Button("Tundra 7",function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5055.1953125, 689.29388427734, 1478.2529296875)
@@ -101,21 +148,11 @@ w:Button("Sigil", function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6568.4311523438, 1385.4940185547, 485.12020874023)
 end)
 
-w:Button("eagle",function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4551.0805664063, 839.29370117188, 470.65466308594)
-	end)
 
 w:Button("Tundra 5", function()
     		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6179.3334960938, 1344.2939453125, 172.17364501953)
 end)
 
-w:Button("cr lab dont go here or oyu will get bannedl o",function() 
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5767.0620117188, 321.55383300781, 637.85296630859)
-end)
-
-w:Button("sell yo shit",function() 
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6141.3686523438, 1344.6939697266, 90.179862976074)
-end)
 
 w:Button("dying bitch",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(621.33825683594, 66.709739685059, -4553.1674804688)
@@ -205,33 +242,5 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1005.757
 wait(2.5)
 end
 end
-end
-end)
-
-w:Toggle("AutoPickup (toggle doesn't work 4 now)", function(v)
-   	while wait(0.1) do  for i,v in pairs(workspace.MouseIgnore:GetDescendants()) do if v:IsA("ClickDetector") then fireclickdetector(v) end end end
-end)
-
-w:Toggle("Player Check", function(v)
-   function CheckPlayer(Player)
-    if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
-        if (Player.Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 then
-            game:Shutdown()
-        end
-    end
-end
-local VirtualUser=game:GetService'VirtualUser'
-local Players=game:GetService'Players'
-local LocalPlayer=Players.LocalPlayer
-LocalPlayer.Idled:Connect(function()
-    VirtualUser:CaptureController()
-    VirtualUser:ClickButton2(Vector2.new())
-end)
-while wait() do
-    for i,v in pairs(game.Players:GetPlayers()) do
-        if v ~= game.Players.LocalPlayer then
-            CheckPlayer(v)
-        end
-    end
 end
 end)
