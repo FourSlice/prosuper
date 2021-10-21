@@ -101,12 +101,20 @@ w:Button("Sigil", function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6568.4311523438, 1385.4940185547, 485.12020874023)
 end)
 
+w:Button("eagle",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4551.0805664063, 839.29370117188, 470.65466308594)
+	end)
+
 w:Button("Tundra 5", function()
     		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6179.3334960938, 1344.2939453125, 172.17364501953)
 end)
 
-w:Button("Spy Tower", function()
-    		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1180.4927978516, 857.44232177734, 2640.2858886719)
+w:Button("Tundra 5", function()
+    		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6179.3334960938, 1344.2939453125, 172.17364501953)
+end)
+
+w:Button("cr lab dont go here or oyu will get bannedl o",function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5767.0620117188, 321.55383300781, 637.85296630859)
 end)
 
 w:Button("sell yo shit",function() 
