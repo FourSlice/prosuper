@@ -109,10 +109,6 @@ w:Button("Tundra 5", function()
     		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6179.3334960938, 1344.2939453125, 172.17364501953)
 end)
 
-w:Button("Tundra 5", function()
-    		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6179.3334960938, 1344.2939453125, 172.17364501953)
-end)
-
 w:Button("cr lab dont go here or oyu will get bannedl o",function() 
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5767.0620117188, 321.55383300781, 637.85296630859)
 end)
