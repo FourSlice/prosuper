@@ -109,12 +109,12 @@ w:Button("eagle",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4551.0805664063, 839.29370117188, 470.65466308594)
 end)
 
-w:Button("cr lab",function() 
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5767.0620117188, 321.55383300781, 637.85296630859)
-end)
-
 w:Button("Castle Rock Table",function()
     		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4885.9931640625, 548.95037841797, 781.82757568359)
+end)
+
+w:Button("cr lab",function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5767.0620117188, 321.55383300781, 637.85296630859)
 end)
 
 w:Button("crystal to tp out of cr",function()
